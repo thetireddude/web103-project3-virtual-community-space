@@ -1,0 +1,244 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --fifa-blue: #003087;
+  --fifa-red: #C8102E;
+  --fifa-gold: #F5A623;
+  --fifa-white: #ffffff;
+  --dark-bg: #0a0a1a;
+  --card-bg: #111130;
+  --text-light: #e0e0f0;
+  --text-muted: #8888aa;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  min-height: 100vh;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.header {
+  background: linear-gradient(135deg, var(--fifa-blue) 0%, #001a5c 50%, var(--fifa-red) 100%);
+  padding: 3rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.header-badge {
+  display: inline-block;
+  background: var(--fifa-gold);
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.header-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--fifa-white);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  line-height: 1;
+}
+
+.header-subtitle {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.05em;
+}
+
+/* ── Main Content ────────────────────────────────────── */
+.main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ── Filter Bar ─────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.location-select {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  background: var(--card-bg);
+  border: 2px solid var(--fifa-blue);
+  border-radius: 8px;
+  color: var(--text-light);
+  font-size: 1rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238888aa' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  transition: border-color 0.2s;
+}
+
+.location-select:focus {
+  outline: none;
+  border-color: var(--fifa-gold);
+}
+
+.show-all-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--fifa-red);
+  color: var(--fifa-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.show-all-btn:hover {
+  background: #a50d25;
+  transform: translateY(-1px);
+}
+
+.show-all-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Event Grid ─────────────────────────────────────── */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── Event Card ─────────────────────────────────────── */
+.event-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: default;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-default {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+  transition: opacity 0.3s;
+}
+
+.card-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--fifa-white);
+  line-height: 1.3;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(0,48,135,0.92) 0%, rgba(200,16,46,0.92) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.event-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.event-card:hover .card-default {
+  opacity: 0;
+}
+
+.overlay-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--fifa-white);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.overlay-detail {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* ── Empty State ─────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 600px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .show-all-btn {
+    text-align: center;
+  }
+
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+}
