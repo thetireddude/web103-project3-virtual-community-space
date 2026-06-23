@@ -1,8 +1,9 @@
-import { Router } from 'express'
-import { getEvents } from '../controllers/events.js'
+import { Router } from "express";
+import { getEvents, getEventsByLocation } from "../controllers/events.js";
 
-const router = Router()
+const router = Router();
 
-router.get('/events', getEvents)
+router.get("/events", getEvents);
+router.get("/location/:id", getEventsByLocation);
 
-export default router
+export default router;
