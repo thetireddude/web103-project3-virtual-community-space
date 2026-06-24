@@ -16,33 +16,29 @@ The following **required** functionality is completed:
 
 - [X] **The web app uses React to display data from the API**
 - [X] **The web app is connected to a PostgreSQL database, with an appropriately structured Events table**
-  - [ ]  **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
-  - [ ]  **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command 'SELECT * FROM tablename;' to display your table contents.**
+  - [X]  **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
+  - [X]  **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command 'SELECT * FROM tablename;' to display your table contents.**
 - [X] **The web app displays a title.**
 - [X] **Website includes a visual interface that allows users to select a location they would like to view.**
-  - [ ] *Note: A non-visual list of links to different locations is insufficient.* 
+  - [X] *Note: A non-visual list of links to different locations is insufficient.* 
 - [X] **Each location has a detail page with its own unique URL.**
 - [X] **Clicking on a location navigates to its corresponding detail page and displays list of all events from the `events` table associated with that location.**
 
 The following **optional** features are implemented:
 
 - [ ] An additional page shows all possible events
-  - [ ] Users can sort *or* filter events by location.
+  - [X] Users can sort *or* filter events by location.
 - [ ] Events display a countdown showing the time remaining before that event
   - [ ] Events appear with different formatting when the event has passed (ex. negative time, indication the event has passed, crossed out, etc.).
-
-The following **additional** features are implemented:
-
-- [ ] List anything else that you added to improve the site's functionality!
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![walkthrough video](walkthrough.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  GIF tool here
+GIF created with ...  ScreenToGif
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
